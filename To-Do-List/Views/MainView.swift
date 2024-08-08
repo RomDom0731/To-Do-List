@@ -9,10 +9,26 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TabView{
+            ContentView(list: testList)
+                .tabItem {
+                    Label("Current Tasks", systemImage: "list.dash")
+                }
+            ExpiredTasks()
+                .tabItem {
+                    Label("Expired Tasks", systemImage: "xmark")
+                }
+            CompletedTasks()
+                .tabItem {
+                    Label("Completed Tasks", systemImage: "checkmark")
+                }
+        }
     }
 }
 
-#Preview {
-    MainView()
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+            .environmentObject(TaskList())
+    }
 }

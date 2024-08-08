@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class TaskList: ObservableObject{
+    @Published var tasks = [Task]()
+    
+    init(tasks: [Task] = []) {
+        self.tasks = tasks
+    }
+}
+
+let testList = TaskList(tasks: taskData)

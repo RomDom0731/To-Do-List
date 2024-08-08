@@ -11,6 +11,12 @@
 		526BD7032C498082000ECB4E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD7022C498082000ECB4E /* ContentView.swift */; };
 		526BD7052C498083000ECB4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526BD7042C498083000ECB4E /* Assets.xcassets */; };
 		526BD7082C498083000ECB4E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 526BD7072C498083000ECB4E /* Preview Assets.xcassets */; };
+		526BD70F2C49829E000ECB4E /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD70E2C49829E000ECB4E /* Task.swift */; };
+		526BD7132C5AB1B3000ECB4E /* TaskDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD7122C5AB1B3000ECB4E /* TaskDetails.swift */; };
+		526BD7162C5ABFF1000ECB4E /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD7152C5ABFF1000ECB4E /* TaskList.swift */; };
+		526BD7182C646E67000ECB4E /* CompletedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD7172C646E67000ECB4E /* CompletedTasks.swift */; };
+		526BD71A2C646E7E000ECB4E /* ExpiredTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD7192C646E7E000ECB4E /* ExpiredTasks.swift */; };
+		526BD71E2C6470C4000ECB4E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526BD71D2C6470C4000ECB4E /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +25,12 @@
 		526BD7022C498082000ECB4E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		526BD7042C498083000ECB4E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		526BD7072C498083000ECB4E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		526BD70E2C49829E000ECB4E /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		526BD7122C5AB1B3000ECB4E /* TaskDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetails.swift; sourceTree = "<group>"; };
+		526BD7152C5ABFF1000ECB4E /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskList.swift; path = Views/TaskList.swift; sourceTree = "<group>"; };
+		526BD7172C646E67000ECB4E /* CompletedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTasks.swift; sourceTree = "<group>"; };
+		526BD7192C646E7E000ECB4E /* ExpiredTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredTasks.swift; sourceTree = "<group>"; };
+		526BD71D2C6470C4000ECB4E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +63,10 @@
 		526BD6FF2C498082000ECB4E /* To-Do-List */ = {
 			isa = PBXGroup;
 			children = (
+				526BD7152C5ABFF1000ECB4E /* TaskList.swift */,
 				526BD7002C498082000ECB4E /* To_Do_ListApp.swift */,
-				526BD7022C498082000ECB4E /* ContentView.swift */,
+				526BD7142C5AB1B9000ECB4E /* Views */,
+				526BD70E2C49829E000ECB4E /* Task.swift */,
 				526BD7042C498083000ECB4E /* Assets.xcassets */,
 				526BD7062C498083000ECB4E /* Preview Content */,
 			);
@@ -65,6 +79,18 @@
 				526BD7072C498083000ECB4E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		526BD7142C5AB1B9000ECB4E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				526BD7122C5AB1B3000ECB4E /* TaskDetails.swift */,
+				526BD7022C498082000ECB4E /* ContentView.swift */,
+				526BD71D2C6470C4000ECB4E /* MainView.swift */,
+				526BD7192C646E7E000ECB4E /* ExpiredTasks.swift */,
+				526BD7172C646E67000ECB4E /* CompletedTasks.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526BD7162C5ABFF1000ECB4E /* TaskList.swift in Sources */,
+				526BD71E2C6470C4000ECB4E /* MainView.swift in Sources */,
+				526BD71A2C646E7E000ECB4E /* ExpiredTasks.swift in Sources */,
 				526BD7032C498082000ECB4E /* ContentView.swift in Sources */,
+				526BD7182C646E67000ECB4E /* CompletedTasks.swift in Sources */,
+				526BD70F2C49829E000ECB4E /* Task.swift in Sources */,
 				526BD7012C498082000ECB4E /* To_Do_ListApp.swift in Sources */,
+				526BD7132C5AB1B3000ECB4E /* TaskDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +309,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +338,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

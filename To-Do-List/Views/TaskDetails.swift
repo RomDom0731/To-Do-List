@@ -7,12 +7,22 @@
 
 import SwiftUI
 
-struct TaskCreator: View {
+struct TaskDetails: View {
+    var task: Task
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            Text("\(task.name)")
+                .font(.system(size: 50))
+            Text("\(task.description)")
+            ForEach(task.steps, id: \.self) { step in
+                Text(step)
+                    .foregroundStyle(.secondary)
+            }
+        }
     }
 }
 
 #Preview {
-    TaskCreator()
+    TaskDetails(task: taskData[0])
 }
