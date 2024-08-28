@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var list = TaskList()
+    
     var body: some View {
         TabView{
-            ContentView(list: testList)
+            ContentView()
                 .tabItem {
                     Label("Current Tasks", systemImage: "list.dash")
                 }
@@ -23,6 +25,7 @@ struct MainView: View {
                     Label("Completed Tasks", systemImage: "checkmark")
                 }
         }
+        .environmentObject(list)
     }
 }
 

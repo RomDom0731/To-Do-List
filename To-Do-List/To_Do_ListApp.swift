@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct To_Do_ListApp: App {
-    @StateObject private var list = TaskList()
+    @StateObject var list = TaskList()
     var body: some Scene {
         WindowGroup {
             MainView()

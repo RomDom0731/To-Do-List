@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TaskDetails: View {
-    var task: Task
+    @State var task: Task
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -16,13 +16,16 @@ struct TaskDetails: View {
                 .font(.system(size: 50))
             Text("\(task.description)")
             ForEach(task.steps, id: \.self) { step in
-                Text(step)
+                Text(step.name)
                     .foregroundStyle(.secondary)
             }
+            Button("Add Step", action: addStep)
         }
+    }
+    
+    func addStep(){
+        task.steps.append(Step(name: "This is a step", isComplete: false))
     }
 }
 
-#Preview {
-    TaskDetails(task: taskData[0])
-}
+

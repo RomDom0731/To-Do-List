@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct Task: Identifiable {
+struct Step: Codable, Equatable, Identifiable, Hashable{
+    var id = UUID()
+    var name: String
+    var isComplete: Bool
+    
+}
+
+struct Task: Identifiable, Codable, Equatable, Hashable{
     var id = UUID()
     
     var name: String
@@ -16,11 +23,6 @@ struct Task: Identifiable {
     var isRepeated: Bool
     var hasDeadline: String
     var description: String
-    var steps: [String]
+    var steps: [Step]
 }
-
-let taskData = [
-    Task(name: "Clean House", deadline: Date(), isComplete: false, isRepeated: false, hasDeadline: "No", description: "Gotta Clean your house super duper good", steps: ["clean bathroom", "Mop Floor"]),
-    Task(name: "Clean Smouse", deadline: Date(), isComplete: false, isRepeated: false, hasDeadline: "Yes", description: "Gotta clean your house kinda sorta good", steps: ["Clean Smathroom", "Mop Smoor"])
-]
 

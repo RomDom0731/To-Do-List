@@ -9,8 +9,8 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @EnvironmentObject var list: TaskList
     
-    @ObservedObject var list: TaskList
     
     @State private var isAdding = false
     @State private var taskName = ""
@@ -20,6 +20,7 @@ struct ContentView: View {
     @State private var taskDescription = ""
     @State private var taskHasDeadline = "No"
     var choices = ["Yes", "No"]
+    private let key = "TaskData"
     
     func addTask(){
         withAnimation{
@@ -29,6 +30,7 @@ struct ContentView: View {
         taskDescription = ""
         taskHasDeadline = "No"
         date = Date()
+        list.save()
         presentPopup.toggle()
     }
     
@@ -40,6 +42,7 @@ struct ContentView: View {
     
     func deleteTask(offsets: IndexSet){
         list.tasks.remove(atOffsets: offsets)
+        list.save()
     }
     
     func closePopup(){
@@ -53,9 +56,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(list.tasks) { task in
-                    if (task.hasDeadline == "No" || task.deadline > Date.now){
-                        CurrentTasks(task: task)
+                ForEach($list.tasks) { $task in
+                    if ((task.hasDeadline == "No" || task.deadline > Date.now) && !task.isComplete){
+                        NavigationLink(destination: TaskDetails(task: task)){
+                            VStack (alignment: .leading) {
+                                HStack{
+                                    Image(systemName: task.isComplete ? "checkmark.circle" : "circle")
+                                        .onTapGesture {
+                                            task.isComplete.toggle()
+                                            list.save()
+                                        }
+                                    Text("\(task.name)")
+                                }
+                                if (task.hasDeadline == "Yes"){
+                                    Text("Task deadline: \(task.deadline.formatted())")
+                                        .font(.caption)
+                                }
+                            }
+                        }
                     }
                 }
                 .onDelete(perform: deleteTask)
@@ -104,29 +122,14 @@ struct ContentView: View {
                     }
                 }
             })
+            .navigationTitle("Current Tasks")
         }
     }
 }
     
-    #Preview {
-        ContentView(list: testList)
-    }
-
-
-struct CurrentTasks: View {
-    var task: Task
-    let date = Date()
-    
-    var body: some View {
-        NavigationLink(destination: TaskDetails(task: task)){
-            VStack (alignment: .leading) {
-                Text("\(task.name)")
-                if (task.hasDeadline == "Yes"){
-                    Text("Task deadline: \(task.deadline.formatted())")
-                        .font(.caption)
-                }
-            }
-        }
-        .navigationTitle("Tasks")
+struct ContentView_Preview: PreviewProvider {
+    static var previews: some View{
+        ContentView()
+            .environmentObject(TaskList())
     }
 }

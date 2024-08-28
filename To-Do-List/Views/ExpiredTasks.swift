@@ -8,11 +8,40 @@
 import SwiftUI
 
 struct ExpiredTasks: View {
+    @EnvironmentObject var list: TaskList
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView{
+            List{
+                ForEach(list.tasks) { task in
+                    if ((task.deadline < Date.now && task.hasDeadline == "Yes") && !task.isComplete){
+                        NavigationLink(destination: TaskDetails(task: task)){
+                            VStack (alignment: .leading) {
+                                Text("\(task.name)")
+                                if (task.hasDeadline == "Yes"){
+                                    Text("Task deadline: \(task.deadline.formatted())")
+                                        .font(.caption)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .toolbar(content: {
+                #if os(iOS)
+                ToolbarItem(placement: .topBarLeading){
+                    EditButton()
+                }
+                #endif
+            })
+            .navigationTitle("Expired Tasks")
+        }
     }
 }
 
-#Preview {
-    ExpiredTasks()
+struct ExpiredTasks_Previews: PreviewProvider {
+    static var previews: some View {
+        ExpiredTasks()
+            .environmentObject(TaskList())
+    }
 }
