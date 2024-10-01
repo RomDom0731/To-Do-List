@@ -12,7 +12,7 @@ struct MainView: View {
     
     var body: some View {
         TabView{
-            ContentView()
+            CurrentTasks()
                 .tabItem {
                     Label("Current Tasks", systemImage: "list.dash")
                 }

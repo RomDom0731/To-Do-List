@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct ContentView: View {
+struct CurrentTasks: View {
     @EnvironmentObject var list: TaskList
     
     
@@ -129,7 +129,7 @@ struct ContentView: View {
     
 struct ContentView_Preview: PreviewProvider {
     static var previews: some View{
-        ContentView()
+        CurrentTasks()
             .environmentObject(TaskList())
     }
 }
