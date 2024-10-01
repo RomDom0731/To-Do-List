@@ -16,7 +16,6 @@ struct CurrentTasks: View {
     @State private var taskName = ""
     @State private var date = Date()
     @State private var presentPopup = false
-    @State private var presentPopup2 = false
     @State private var taskDescription = ""
     @State private var taskHasDeadline = "No"
     var choices = ["Yes", "No"]
